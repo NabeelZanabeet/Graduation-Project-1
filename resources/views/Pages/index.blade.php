@@ -1,7 +1,9 @@
 @extends('layouts.layout')
 
-@section('content')
-       <h1 align="center" ><b>Present Like A Pro</b> </h11>
-       <h2> This is the hommmmme page </h2>
-       <h3>{{$title}}</h3>
+@section('content') 
+  <div class="jumbotron text-center">
+     <h1>Welcome To PLAP!</h1>
+     <p>This is the PLAP application from the outspace</p>
+     <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> <a class="btn btn-success btn-lg" href="/register" role="button">Register</a></p>
+  </div>
 @endsection
