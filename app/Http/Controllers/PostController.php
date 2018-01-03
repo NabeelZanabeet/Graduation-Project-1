@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//so you can access post model or table
 use App\Post;
 class PostController extends Controller
 {
+
+     /**Access Control Bu Authintication (login required except for index and show pages)*/
+     public function __construct()
+     {
+         $this->middleware('auth',['except'=>['index','show']]);
+     }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +22,8 @@ class PostController extends Controller
     public function index()
     {
        //$postContent= Post::orderBy('title','desc')->get();
-       $postContent= Post::orderBy('created_at','desc')->paginate(10);
-        return view('Posts.index')->with ('postContent',$postContent); 
+       $posts= Post::orderBy('created_at','desc')->paginate(10);
+        return view('Posts.index')->with ('posts',$posts); 
     }
 
     /**
@@ -40,10 +48,11 @@ class PostController extends Controller
             'title'=>'required',
             'body' =>'required'
         ]);
-        
+        //Tinker way
         $post = new Post();
         $post->title =$request->input('title');
         $post->body =$request->input('body');
+        $post->user_id = auth()->user()->id;
         $post->save();
 
         return redirect('/post')-> with('success','Post Created');
@@ -57,7 +66,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   //Tinker Way
         $post= Post::find($id);
         return view('Posts.show')->with('post',$post);
     }
@@ -70,7 +79,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post= Post::find($id);
+        //check for correct user (if not redirect)
+        if(auth()->user()->id !==  $post->user_id){
+            return redirect('/post')->with('error','Unauthrized page');
+        }
+        return view('Posts.edit')->with('post',$post);
     }
 
     /**
@@ -82,7 +96,17 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'body' =>'required'
+        ]);
+        
+        $post = Post::find($id);
+        $post->title =$request->input('title');
+        $post->body =$request->input('body');
+        $post->save();
+
+        return redirect('/post')-> with('success','Post Updated');
     }
 
     /**
@@ -93,6 +117,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        //check for correct user (if not redirect)
+        if(auth()->user()->id !==  $post->user_id){
+            return redirect('/post')->with('error','Unauthrized page');
+        }
+        $post->delete();
+        return redirect('/post')-> with('success','Post Deleted ');
     }
 }

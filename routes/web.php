@@ -22,3 +22,7 @@ Route::get('/about', 'PagesController@about');
 
 Route::resource('post','PostController');
 
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');

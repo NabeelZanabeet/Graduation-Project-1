@@ -1,5 +1,5 @@
 <?php
-
+//This is User Model
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    // Model Relation (This User hanMany Posts)
+    public function posts(){
+         return $this->hasMany('App\post');
+    }
 }

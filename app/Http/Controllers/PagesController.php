@@ -1,5 +1,5 @@
 <?php
-
+//php artisan make:controller PagesController
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,7 +14,8 @@ class PagesController extends Controller
         $data = array(
            'title'=> 'About dynamic tiltle',
            'services'=>['web','prog','seo']
-        );
+    );
+     // use with to pass valued to the views to exchange data betwwen model and view through controller
         return view('Pages.about')->with($data);
    }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+// created usin php artisan make:migrate posts 
+// when php artisan migrate the model and table is created
 
 class CreatePostsTable extends Migration
 {
