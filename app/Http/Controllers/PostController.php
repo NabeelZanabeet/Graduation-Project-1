@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //so you can access post model or table
 use App\Post;
+//to access storage file
+use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
 
@@ -44,15 +46,37 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // Here is the validation of the form
         $this->validate($request,[
             'title'=>'required',
-            'body' =>'required'
+            'body' =>'required',
+            'cover_image' => 'image|nullable|max:1999'
         ]);
+
+        //Handle File upload 
+        if($request->hasFile('cover_image')){
+            //get file name with the extention
+            $fileNameWithExt=$request->file('cover_image')->getClientOriginalName();
+            //get just file name 
+            $filename =pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            // get just extention
+            $extention =$request->file ('cover_image')->getClientOriginalExtension();
+            //filename to store
+            $fileNameToStore =$filename.'_'.time().'.'.$extention;
+            // uplpoad image
+            // we did mimic the storage file to be accessed by the browser using php artisan storage:link
+            $path =$request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore); 
+        }   
+        else
+        {
+            $fileNameToStore='noimage.jpg';
+        }
         //Tinker way
         $post = new Post();
         $post->title =$request->input('title');
         $post->body =$request->input('body');
         $post->user_id = auth()->user()->id;
+        $post->cover_image =$fileNameToStore;
         $post->save();
 
         return redirect('/post')-> with('success','Post Created');
@@ -100,10 +124,26 @@ class PostController extends Controller
             'title'=>'required',
             'body' =>'required'
         ]);
+        if($request->hasFile('cover_image')){
+            //get file name with the extention
+            $fileNameWithExt=$request->file('cover_image')->getClientOriginalName();
+            //get just file name 
+            $filename =pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            // get just extention
+            $extention =$request->file ('cover_image')->getClientOriginalExtension();
+            //filename to store
+            $fileNameToStore =$filename.'_'.time().'.'.$extention;
+            // uplpoad image
+            // we did mimic the storage file to be accessed by the browser using php artisan storage:link
+            $path =$request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore); 
+        }   
         
         $post = Post::find($id);
         $post->title =$request->input('title');
         $post->body =$request->input('body');
+         if($request->hasFile('cover_image')){
+             $post->cover_image=$fileNameToStore;
+         }
         $post->save();
 
         return redirect('/post')-> with('success','Post Updated');
@@ -121,6 +161,13 @@ class PostController extends Controller
         //check for correct user (if not redirect)
         if(auth()->user()->id !==  $post->user_id){
             return redirect('/post')->with('error','Unauthrized page');
+        }
+
+        if($post->cover_image != 'noimage.jpg')
+        {
+            //delete the image
+            Storage::delete('public/cover_images/'.$post->cover_image);
+
         }
         $post->delete();
         return redirect('/post')-> with('success','Post Deleted ');

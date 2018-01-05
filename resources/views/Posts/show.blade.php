@@ -12,6 +12,8 @@
      <hr>
         <small>written at {{$post->created_at}}</small>
      <hr>
+     <img src="/storage/cover_images/{{$post->cover_image}}">
+                        
      <!--To prevent guests to access edit and delete of a post-->
     @guest
 
