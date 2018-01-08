@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
 
-     /**Access Control Bu Authintication (login required except for index and show pages)*/
+     /**Access Control By Authintication (login required except for index and show pages)*/
      public function __construct()
      {
          $this->middleware('auth',['except'=>['index','show']]);
