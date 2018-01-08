@@ -1,27 +1,47 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-        <a class="navbar-brand" href="/">PLAP</a>
+        <img src="Images/LogoIconInv.png"  width="3%" hight="3%">
+        <pre> </pre>
+        <a class="navbar-brand" href="/"> PLAP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-  
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
+       
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault"align="center">
+             
+          <ul class="navbar-nav mr-auto " >
               <!--LINKS-->
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+             <pre>                                                      </pre>
+            
+            <li class="nav-item white">
+              <a class="nav-link" href="/">
+                 <div class="white">
+                     <i class="fa fa-home fa-lg" aria-hidden="true"></i> Home
+                 </div>
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+      
+            <li class="nav-item white">
+                <a class="nav-link " href="/post">
+                    <div class="white">
+                      <i class="fa fa-sliders fa-lg" aria-hidden="true"></i> Posts
+                    </div>
+                </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/post">Posts</a>
-              </li>
+
+            <li class="nav-item white">
+                <a class="nav-link " href="/about">
+                    <div class="white">
+                      <i class="fa fa-info fa-lg" aria-hidden="true"></i> About
+                    </div>
+                </a>
+            </li>
+            <!--
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
+            -->
              <!--Dropdown-->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                   <a class="dropdown-item" href="#">Action</a>
@@ -30,7 +50,8 @@
                 </div>
               </li>
           </ul>
-          
+        
+        
           <ul class="nav navbar-nav navbar-right">
               <!-- Authentication Links/ check if a guest -->
               @guest
