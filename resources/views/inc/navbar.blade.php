@@ -10,7 +10,7 @@
              
           <ul class="navbar-nav mr-auto " >
               <!--LINKS-->
-             <pre>                                                      </pre>
+             <pre>                                              </pre>
             
             <li class="nav-item white">
               <a class="nav-link" href="/">

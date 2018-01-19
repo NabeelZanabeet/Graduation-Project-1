@@ -7,9 +7,11 @@
         
             <!-- CSRF Token -->
             <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+            
+
             <title>PLAP</title>
-        
+            <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+            {!! Html::favicon('favicon') !!}
             <!-- Styles -->
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,6 +31,7 @@
                 </div>
       </div>
       
+      @yield('footer')
      <!--npm run dev or npm run watch when add another script-->
       <script src="{{ asset('js/app.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
