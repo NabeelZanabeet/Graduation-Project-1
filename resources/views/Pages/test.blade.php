@@ -1,78 +1,29 @@
-@extends('layouts.layout')
-
-@section('style') 
-    <link href="{{ asset('css/indexStyle.css') }}" rel="stylesheet">
-   
-@endsection
-
-@section('content') 
-<br>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="{{ asset('css/testStyle.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href='//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet'/>
+</head>
+<body>
+    <footer class="nb-footer">
 <div class="container">
-  <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-7">
-        <br><br><br><br>
-        <div class="container">
-           <img src="Images/Title3.png"  width="85%" hight="85%" align="center">
-           <h4 align="center">The Intelligent Slide Creater</h4>
-           <h5 align="center"> To mastering the art of <br>busniess, professional & public speaking</h5> 
-        </div> 
-    </div>
-  </div>
-
-  <div class="row-2">
-        <br><br><br><br><br><br><br><br>
-       <div class="col-12">
-          <div align="center">
-            <br><br><br><br>
-           <img src="Images/GetStarted.png" width="20%" hight="20%">
-           <div>  
-       </div>
-  </div>
-
-  <div class="row-3">
-        <br><br><br><br><br><br><br>
-       <div class="col-12">
-          <div align="center">
-            <img src="Images/LogoIconRed.png"width="15%" hight="15%" > <br><br>
-              <p class="dis">
-               <b>Present like A Pro</b> <br>
-               Your altimate solution to present and impress your audions, <br>
-               Control all your slides by a "Custamize Voice" commands that you provide <br>
-              </p>
-              <br><br>
-          <div>  
-       </div>
-  </div>
-  <div class="row-4">
-     <div class="center">
-   <img src="Images/Features.png" class="card-img" width="100%" hight="100%"  >
-     </div>
-    </div>
-  
-  <br><br>
-</div>
- 
-@endsection
-
-@section('footer')
-
-<footer class="nb-footer">
-  <div class="container">
-    <div class="row">
-       <div class="col-sm-12">
-          <div class="about">
-	       <!-- <img src="" class="img-responsive center-block" width="10%" hight="10%">-->
-	<p>Developed & Designed by Nabeel Zanabeet, Razan Onab</p>
+<div class="row">
+<div class="col-sm-12">
+<div class="about">
+	<img src="images/logo.png" class="img-responsive center-block" alt="">
+	<p>Bootstrap Footer example snippets with CSS, Javascript and HTML. Code example of bootstrap-3 footer using HTML, Javascript, jQuery, and CSS. 5 Beautiful and Responsive Footer Templates. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
 
 	<div class="social-media">
-		<ul>
-			<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-facebook"></i></a>
-			<a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-twitter"></i></a>
-			<a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-google-plus"></i></a>
-			<a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-linkedin"></i></a></li>
-    </ul>
+		<ul class="list-inline">
+			<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-facebook"></i></a></li>
+			<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-twitter"></i></a></li>
+			<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-google-plus"></i></a></li>
+			<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-linkedin"></i></a></li>
+		</ul>
 	</div>
 </div>
 </div>
@@ -97,6 +48,7 @@
 		<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a></li>
 		<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Sell Your Items</a></li>
 		<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+		<li><a href="http://www.nextbootstrap.com/" title=""><i class="fa fa-angle-double-right"></i> RSS</a></li>
 	</ul>
 </div>
 </div>
@@ -127,13 +79,12 @@
 <div class="container">
 <div class="row">
 <div class="col-sm-6">
-<p>Copyright © 2017. PLAP.</p>
+<p>Copyright © 2017. Your Company.</p>
 </div>
 <div class="col-sm-6"></div>
 </div>
 </div>
 </section>
 </footer>
-
-@endsection
-
+</body>
+</html>

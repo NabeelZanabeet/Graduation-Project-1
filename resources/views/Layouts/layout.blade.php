@@ -20,23 +20,25 @@
 
     </head>
     <body>
-     @include('inc.navbar')
-    <main role="main" class="container">
+      
+      @include('inc.navbar')
+      <main role="main" class="container">
             @include('inc.messages')
-      <div class="starter-template">
+         <div class="starter-template">
             <div id="app">
                     <div class="container">
                        @yield('content')
                     </div>
-                </div>
+           </div>
       </div>
+    </main>
       
       @yield('footer')
      <!--npm run dev or npm run watch when add another script-->
-      <script src="{{ asset('js/app.js') }}"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
+       <script src="{{ asset('js/app.js') }}"></script>
+       <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+       <script>
         CKEDITOR.replace( 'article-ckeditor' );
-    </script>
+       </script>
     </body>
 </html>

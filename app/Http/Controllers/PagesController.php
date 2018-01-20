@@ -18,4 +18,8 @@ class PagesController extends Controller
      // use with to pass valued to the views to exchange data betwwen model and view through controller
         return view('Pages.about')->with($data);
    }
+
+   public function test(){
+        return view('Pages.test');
+   }
 }

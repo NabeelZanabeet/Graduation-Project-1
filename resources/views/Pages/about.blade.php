@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('content')
+@section('footer')
        <h2> This is the About page  </h2>
        <h3>{{$title}}</h3>
        @if (count($services)>0)
