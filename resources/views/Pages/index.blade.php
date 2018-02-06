@@ -64,7 +64,7 @@
        <div class="col-sm-12">
           <div class="about">
 	       <!-- <img src="" class="img-responsive center-block" width="10%" hight="10%">-->
-	<p>Developed & Designed by Nabeel Zanabeet, Razan Onab</p>
+	<p>Developed & Designed by Razan Onab, Nabeel Zanabeet</p>
 
 	<div class="social-media">
 		<ul>

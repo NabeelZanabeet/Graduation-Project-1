@@ -1,73 +1,50 @@
-@extends('layouts.layout')
+@extends('layouts.main')
+
+@section('head')
+
+    <link rel="stylesheet" href="/assets/css/signin.css">
+
+@stop
 
 @section('content')
-<div class="container">
-    <p></p>
-    <div align="center">
-     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="card " style="width: 40rem;">
-                    <p></p>
-                <div class="card-title"align="center">Login</div>
+        {!! Form::open(['url' => url('#'), 'class' => 'form-signin'] ) !!}
+        @include('includes.status')
 
-                <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+        <h2 class="form-signin-heading">Please sign in</h2>
 
-                        <div align="center" class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-card">E-Mail Address</label>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        {!! Form::email('email', null, [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'Email address',
+            'required',
+            'id'                            => 'inputEmail'
+        ]) !!}
 
-                            <div class="col-md-6">
-                                <input id="email"  type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        {!! Form::password('password', [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'Password',
+            'required',
+            'id'                            => 'inputPassword'
+        ]) !!}
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div align="center" class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password"align="center"  class="col-md-4 control-card">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password"align="center" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div align="center" class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div align="center" class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div style="height:15px;"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset class="form-group">
+                    {!! Form::checkbox('remember', 1, null, ['id' => 'remember-me']) !!}
+                    <label for="remember-me">Remember me</label>
+                </fieldset>
             </div>
         </div>
-     </div>
-    </div>
-</div>
-@endsection
+
+        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Sign in</button>
+        <p><a href="{{ url('#') }}">Forgot password?</a></p>
+
+        <p class="or-social">Or Use Social Login</p>
+
+        @include('partials.socials')
+
+        {!! Form::close() !!}
+
+@stop   

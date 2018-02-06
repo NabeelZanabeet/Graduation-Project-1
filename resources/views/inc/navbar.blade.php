@@ -8,7 +8,7 @@
        
         <div class="collapse navbar-collapse" id="navbarsExampleDefault"align="center">
              
-          <ul class="navbar-nav mr-auto " >
+          <ul class="navbar-nav mr-auto " > 
               <!--LINKS-->
              <pre>                                              </pre>
             

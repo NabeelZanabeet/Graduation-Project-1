@@ -20,6 +20,13 @@ class PagesController extends Controller
    }
 
    public function test(){
-        return view('Pages.test');
+      
+        return view('Layouts.main');
    }
+   
+   public function getHome()
+    {
+        return view('Layouts.main');
+    }
 }
+

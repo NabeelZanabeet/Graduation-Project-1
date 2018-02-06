@@ -1,80 +1,66 @@
-@extends('layouts.layout')
+@extends('layouts.main')
+
+@section('head')
+  <link rel="stylesheet" href="{{asset('css/register.css')}}">
+@stop
 
 @section('content')
-<div class="container">
-        <p></p>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <!--card is uesd instead of label in bootstrap 4-->
-            <div class="card " align="center"style="width: 40rem;">
-                    <p></p>
-                <div class="card-heading" align="center">Register</div>
 
-                <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+        {!! Form::open(['url' => url('/register'), 'class' => 'form-signin'] ) !!}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-card">Name</label>
+        @include('includes.errors')
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+        <h2 class="form-signin-heading">Please register</h2>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        {!! Form::email('email', null, [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'Email address',
+            'required',
+            'id'                            => 'inputEmail'
+        ]) !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-card">E-Mail Address</label>
+        <label for="inputFirstName" class="sr-only">First name</label>
+        {!! Form::text('first_name', null, [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'First name',
+            'required',
+            'id'                            => 'inputFirstName'
+        ]) !!}
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+        <label for="inputLastName" class="sr-only">Last name</label>
+        {!! Form::text('last_name', null, [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'Last name',
+            'required',
+            'id'                            => 'inputLastName'
+        ]) !!}
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-card">Password</label>
+        <label for="inputPassword" class="sr-only">Password</label>
+        {!! Form::password('password', [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'Password',
+            'required',
+            'id'                            => 'inputPassword'
+        ]) !!}
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+        <label for="inputPasswordConfirm" class="sr-only has-warning">Confirm Password</label>
+        {!! Form::password('password_confirmation', [
+            'class'                         => 'form-control',
+            'placeholder'                   => 'Password confirmation',
+            'required',
+            'id'                            => 'inputPasswordConfirm'
+        ]) !!}
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-card">Confirm Password</label>
+        <button class="btn btn-lg btn-primary btn-block register-btn" type="submit">Register</button>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
+        <p class="or-social">Or Use Social Login</p>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+        @include('partials.socials')
+
+        {!! Form::close() !!}
+
+
+@stop
