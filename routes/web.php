@@ -16,7 +16,7 @@ Route::get('/testt', function () {
     return view('layouts.main');
 });
 */
-
+/*
 Route::get('/', 'PagesController@index');
 Route::get('/test', 'PagesController@test');
 Route::get('/about', 'PagesController@about');
@@ -26,6 +26,7 @@ Route::resource('post','PostController');
 
 
 Auth::routes();
+*/
 
 Route::get('/dashboard', 'DashboardController@index');
 
@@ -61,17 +62,16 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 
 });
 
-Route::group(['middleware' => 'auth:all'], function()
-{
+
     $a = 'authenticated.';
     Route::get('/logout', ['as' => $a . 'logout', 'uses' => 'Auth\LoginController@logout']);
-});
+
 
 Auth::routes(['login' => 'auth.login']);
 
 
 //SOCIAL REDIRECT FOR SOCIAL LOGIN
 $s = 'social.';
-Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\AuthController@getSocialRedirect']);
-Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\AuthController@getSocialHandle']);
+Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
+Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
 

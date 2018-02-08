@@ -6,6 +6,7 @@ use Closure;
 
 class Authenticate
 {
+
     /**
      * Handle an incoming request.
      *
@@ -32,6 +33,7 @@ class Authenticate
             abort(403);
         }
         return $next($request);
-    }n $next($request);
+        
     }
+    
 }

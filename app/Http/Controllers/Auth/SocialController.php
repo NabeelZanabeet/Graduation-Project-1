@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Laravel\Socialite\Facades\Socialite;
+
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
-use App\Models\Social;
-use App\Models\User;
-use App\Models\Role;
+use App\Social;
+use App\User;
+use App\Role;
+use Socialite;
 
 class SocialController extends Controller
 {
