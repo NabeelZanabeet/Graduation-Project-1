@@ -9,6 +9,6 @@ class UserController extends Controller
     //
     public function getHome()
     {
-        return view('panels.admin.home');
+        return view('panels.user.home');
     }
 }

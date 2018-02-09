@@ -36,9 +36,9 @@ return [
     ],
     
     'facebook' => [
-        'client_id'     => env('FB_ID'),
-        'client_secret' => env('FB_SECRET'),
-        'redirect'      => env('FB_REDIRECT')
+        'client_id'     => env('FB_ID','162383447742320'),
+        'client_secret' => env('FB_SECRET','1f8257c6aec53802ef6922edcb877524'),
+        'redirect'      => env('FB_REDIRECT','http://plap.localhost/social/handle/facebook')
     ],
 
     'twitter' => [
@@ -48,9 +48,9 @@ return [
     ],
 
     'google' => [
-        'client_id'     => env('GOOGLE_ID'),
-        'client_secret' => env('GOOGLE_SECRET'),
-        'redirect'      => env('GOOGLE_REDIRECT')
+        'client_id'     => env('GOOGLE_ID','221544077121-lvlpe5v5fhe01von5ql8d77oaqsindop.apps.googleusercontent.com'),
+        'client_secret' => env('GOOGLE_SECRET','ov-jZ6a-OhLcwXxK-J-jje3A'),
+        'redirect'      => env('GOOGLE_REDIRECT','http://plap.localhost.com/social/handle/google')
     ],
 
     'github' => [
