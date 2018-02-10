@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "studious-booth-192719",
+  "private_key_id": "96acde5a7979f1e64ab36b3d0aa80f46732a1744",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDZ89PKZ0MOnUbQ\nM+DRdGBsKEoKuuNGMIe959XQhM1gsxP8BUMVqLaLILcs0x4r3P3Rz7vvUr5H0Rpm\nc+RuseMUJaxaU75C6T6kfKMHqvaapMNMKB6oi4rJ/qrNLti2v0evYfNwMQznsGpA\nPE2gZyVJx5Dr2G3Oie+G9TK2aZtl+C7rg4boU572XNJ1W4XY+pTKfsO5GcZnwQ5a\n5xLwoSr+Z7sNwrJS+JBOsEpvw9gnQY8qLzmnV4yyZbV/N5gU+Ue7E1NbhUKBVpNK\nTyzlgXeOHeSRepFaHr4auZTwwEeN+8v7QD/MoOKhMUwcGvvWw9K450rO/nVfWHGU\nnEUL2Lg1AgMBAAECggEAAWUlqGiDzd6k2uVSHZUcnuSdILd0h/j8jXMj87s9404S\nJS1VchiL3pUdhwxs54P5HfQx9ES30hbdD+XTAwBhfzoEgemCUMRUcdIYaw6lmHTQ\niTbCh3qpL0TRjBGuMnFEALPkToYJ2pvO+k1Ig+vVGcVMwK24ejd40IjWQ8OmSn9K\nqxLnFDB0OrkvsjuFEbNZ65WT2abrC2Ld9906BJFe45wUKGdZV+gmyOtxmngZdoDj\nwJ3qHWfq5WQcsvOPrDTOUKpqE4EreF9eCyQX6tCirGetUD4MceOBPGQPbyroPEw5\n413+iuDJEjJWXmi9asq+s/LztwGM9k32uL8vYlSFUQKBgQDzrblfZh+ArDjIR0fg\nURsk9W0q1t4yaGYMY1xIMvjJ2q4fSJysotSPOBpoiSE8YVvmpYnusjd3lRMz8Sfm\n3wUH0i0q6qzpsE+ddOhcQVUmTuDkC3vZ6PzgAuDIObHkYeSxw2IpDBng8y/TP9u7\n+Fccq3ELamrm9ulvyYXTDfPTTQKBgQDk+RfeOPQXd/YD0mhJjbgAgD7LsxRm9Vch\nQPVaRmv9rkV/Z3iPctBIca2rCBM9u07FMij3KF3WrkBy3sK5l01VSS22+9UBhl7j\nN0NijAk8KzD4B3PFNff9R5IeC14Vi54ozqvMYSDSF1RtHXo+oP7ehA+gJKSppweN\nt53XSLU0iQKBgEBKho0X+ZnOVpDo1Zrmaz3+DtZtqGQuTTZZhMB7yk4fhy8zzjpy\nH5jF2ZnZDE7M9R1OcazrklzXlSBwMPHlx4L/vfEDx6lEXk0RyjiE+D1KNGWWbg/Z\nO9ayi7HoHvo9pcQM47omujEymFypDYVziTBEP2gepKPZY0+eINPFa55FAoGAQ+0p\niYE32GZ8EzIuQfPK7EsfVeqwWMLbsD/HCZrumnlCoMMfXt7erz8aGCzzGFMi0RlK\nUdglznQvJmSzO7+I744gA7K9xBAKwjk4wllsu+7MPihnzc9u3DKJRGR26slaiByX\nlrARvoGxSBWAmGfGdFiVEhsMxk+IzB/2sVEegJECgYBD1+DfLcZWF6e+yXjgau9L\nLdA5f0oY+8RUy3QjYbUryVNFQr+G6u9kMcGjPJXyrH/6cVceTg7MBgIrp3Nm9P/b\nnmrhPlqdzU8FAf5aqxgpKEodM+oryv9do/VPpPAALLsBlJ7Ir+Kb/M6GrsDqbdDe\nBRGLYybQPilPXi7bEDh8/g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "plap-950@studious-booth-192719.iam.gserviceaccount.com",
+  "client_id": "105993646728343785558",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/plap-950%40studious-booth-192719.iam.gserviceaccount.com"
+}

@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+<br>
         {!! Form::open(['url' => url('#'), 'class' => 'form-signin'] ) !!}
         @include('includes.status')
 

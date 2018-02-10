@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('Layouts.main')
 
 @section('style') 
     <link href="{{ asset('css/indexStyle.css') }}" rel="stylesheet">
@@ -9,20 +9,20 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-7">
-        <br><br><br><br>
-        <div class="container">
-           <img src="Images/Title3.png"  width="85%" hight="85%" align="center">
+    
+    <div class="col-lg" >
+        <div class="topMargin ">
+        <div class="pull-right" align="center">
+           <img src="Images/Title3.png"  width="50%" hight="50%" align="center">
            <h4 align="center">The Intelligent Slide Creater</h4>
            <h5 align="center"> To mastering the art of <br>busniess, professional & public speaking</h5> 
         </div> 
+      </div>
     </div>
   </div>
 
   <div class="row-2">
-        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
        <div class="col-12">
           <div align="center">
             <br><br><br><br>

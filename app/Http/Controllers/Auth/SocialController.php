@@ -8,7 +8,7 @@ use App\Social;
 use App\User;
 use App\Role;
 use Socialite;
-use ActivationTrait;
+
 
 class SocialController extends Controller
 {
@@ -75,11 +75,13 @@ class SocialController extends Controller
             }
         }
         auth()->login($socialUser, true);
+        
+
         if ( auth()->user()->hasRole('user')) {
-            return redirect()->route('user.home');
+            return redirect('/');
         }
         if ( auth()->user()->hasRole('administrator')) {
-            return redirect()->route('admin.home');
+            return redirect('/');
         }
         return abort(500, 'User has no Role assigned, role is obligatory! You did not seed the database with the roles.');
     }

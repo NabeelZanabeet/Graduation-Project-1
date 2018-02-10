@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\Google;
 
 class PagesController extends Controller
 {
@@ -27,6 +28,11 @@ class PagesController extends Controller
    public function getHome()
     {
         return view('Layouts.main');
+    }
+    public function indexx(Google $google)
+    {
+    $result = $google->getBooks();
+    print_r($result);
     }
 }
 

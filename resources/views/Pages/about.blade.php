@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('Layouts.main')
 
 @section('footer')
        <h2> This is the About page  </h2>

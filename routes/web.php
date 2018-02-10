@@ -28,7 +28,7 @@ Route::resource('post','PostController');
 Auth::routes();
 */
 
-Route::get('/dashboard', 'DashboardController@index');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,13 +40,21 @@ Route::get('/dashboard', 'DashboardController@index');
 | to using a Closure or controller method. Build something great!
 |
 */
+/*
+Route::get('test', function (Google $google) {
+    
+    $result = $google->getBooks();
+    print_r($result);
 
-Route::get('test', function () {
-    return view('layouts.main');
 });
+*/
 
 $s = 'public.';
-Route::get('/',         ['as' => $s . 'home',   'uses' => 'PagesController@getHome']);
+Route::get('/',         ['as' => $s . 'home',   'uses' => 'PagesController@index']);
+
+Route::get('/about', 'PagesController@about');
+
+Route::get('/test', 'PagesController@indexx');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {
