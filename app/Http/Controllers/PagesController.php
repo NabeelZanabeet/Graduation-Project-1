@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\Google;
+use Google_Client; 
 
 class PagesController extends Controller
 {
@@ -23,6 +24,11 @@ class PagesController extends Controller
    public function test(){
       
         return view('Layouts.main');
+   }
+
+   public function hackHome(){
+      
+        return view('Pages.hackHome');
    }
    
    public function getHome()

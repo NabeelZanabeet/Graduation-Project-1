@@ -21,11 +21,15 @@
     <meta property="og:site_name" content="Codingo Tuts">
     <meta property="og:image:type" content="image/png">]
    -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
-    <link rel="stylesheet" href="{{asset('css/custum.css')}}">
     
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">  
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> 
+   
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+     <!--
+        <link rel="stylesheet" href="{{asset('css/custum.css')}}">
+     -->
     @yield('style')
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -41,6 +45,7 @@
 
 <!--Navigation-->
 <header>
+
 
 @include('partials.above-navbar-alert')
 
@@ -73,7 +78,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/test" target="_blank"><i class="fa fa-hourglass-half"></i>  Test</a>
+                        <a class="nav-link" href="https://www.googleapis.com/auth/presentations" target="_blank"><i class="fa fa-hourglass-half"></i>  Test</a>
                     </li>
                     @if(!Auth::check())
                     <li class="nav-item">
@@ -83,6 +88,10 @@
                         <a class="nav-link" href="{{ url('register') }}"><i class="fa fa-registered"></i> Register</a>
                     </li>
                     @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard" target="_blank"><i class="fa fa-cogs"></i>  Dashboard</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href=""><i class="fa fa-user"></i> {{ Auth::user()->first_name }}</a>
                     </li>
@@ -116,6 +125,7 @@
     </nav>
     <!--/.Navbar-->
 
+@yield('header')
 
 </header>
 <!--/Navigation-->

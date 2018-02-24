@@ -12,6 +12,7 @@ use Socialite;
 
 class SocialController extends Controller
 {
+    //public $token;
     
     public function getSocialRedirect( $provider )
     {
@@ -30,6 +31,7 @@ class SocialController extends Controller
                 ->with('message', 'You did not share your profile data with our social app.');
         }
         $user = Socialite::driver( $provider )->user();
+        //$this->token = $user->token;
         $socialUser = null;
         //Check is this email present
         $userCheck = User::where('email', '=', $user->email)->first();
@@ -78,10 +80,12 @@ class SocialController extends Controller
         
 
         if ( auth()->user()->hasRole('user')) {
-            return redirect('/');
+            return redirect('/dashboard');
+            //->with($this->token)
         }
         if ( auth()->user()->hasRole('administrator')) {
-            return redirect('/');
+            return redirect('/dashboard');
+            //->with($this->token)
         }
         return abort(500, 'User has no Role assigned, role is obligatory! You did not seed the database with the roles.');
     }

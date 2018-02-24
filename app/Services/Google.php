@@ -11,6 +11,12 @@ class Google {
     protected $service;
 
     function __construct() {
+        /*$client = new Google_Client();
+        $client->setAuthConfig('client_secret.json');
+        $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+        $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
+        $client->setAccessType('offline');        // offline access
+        $client->setIncludeGrantedScopes(true);   // incremental auth 
         /* Get config variables */
         $client_id = Config::get('google.client_id');
         $service_account_name = Config::get('google.service_account_name');
@@ -27,4 +33,5 @@ class Google {
 
         dd($results);
     }
+    
 }

@@ -22,7 +22,6 @@ Route::get('/test', 'PagesController@test');
 Route::get('/about', 'PagesController@about');
 //Route::get('/test', 'PagesController@test');
 
-Route::resource('post','PostController');
 
 
 Auth::routes();
@@ -54,7 +53,14 @@ Route::get('/',         ['as' => $s . 'home',   'uses' => 'PagesController@index
 
 Route::get('/about', 'PagesController@about');
 
+Route::get('/hackHome', 'PagesController@hackHome');
+
 Route::get('/test', 'PagesController@indexx');
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::post('/dashboard', 'DashboardController@test');
+Route::resource('post','PostController');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {
