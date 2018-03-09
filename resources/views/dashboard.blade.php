@@ -25,17 +25,10 @@
               <br><br>  
                 <div class="container" >
                         <div class="speech" align="center">
-                           
                             <br><br>
                             {!! csrf_field() !!}
                         <div class="form-style-5">
-                            <form  action="{{action('DashboardController@test')}}" method="post" name="speakForm"  id="VoiceForm" >
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <textarea class="p" rows="13" cols="40" name="InputTextArea" id="speak" placeholder="Speak"  ></textarea>
-                                <input type="hidden" name="project" value="{{$project}}" >
-                                <input type="hidden" name="slidenum" value="{{$slidenum}}" > 
-                                <input type="hidden" name="encode" value="{{$encode}}" > 
-                            </form>
+                            
                         </div>
                         <input onclick='responsiveVoice.speak(speak.value);' Value ="play" type='button' class="btn btn-warning" id="value" />
                        </div>
@@ -47,7 +40,9 @@
                    <img onclick="startDictation()" width="90%" hight="90%" src="Images/RedMic.png" />
                    <button onclick="startDictation()" type="button" class="btn btn-default" id="getRequest">Get Started</button>     
                    <button onclick="document.speakForm.submit();" type="button" class="btn btn-default  " id="submit">send</button>
-                    
+                    <form  action="{{action('SlidesController@index')}}" method="post" name="speakForm"  id="VoiceForm" >
+                     <input type="submit" value="Submit">
+                    </form>
                 </div>
           </div>
 

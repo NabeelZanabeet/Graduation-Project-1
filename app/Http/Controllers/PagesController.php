@@ -35,6 +35,7 @@ class PagesController extends Controller
     {
         return view('Layouts.main');
     }
+    
     public function indexx(Google $google)
     {
     $result = $google->getBooks();

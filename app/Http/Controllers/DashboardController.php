@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\View;
 use SplDoublyLinkedList;
+
 class DashboardController extends Controller
 {
     /**
@@ -28,7 +29,6 @@ class DashboardController extends Controller
      */
     public function index()
     {  
-        
          $keys=[];
          $Message="no command";
          $project='';
@@ -58,9 +58,9 @@ class DashboardController extends Controller
             }
             //cmd1 : Create Presentation presentation-Name 
            if($reply[$i]=="create" && !empty ($reply[$i+1]) && $reply[$i+1]=="presentation"){
-            $project=$reply[$i+2];
+               $project=$reply[$i+2];
                $Message='presentation '.$project.' created';
-                $attributes=['name'=>$reply[$i+2],'funnum'=>'1'];
+               $attributes=['name'=>$reply[$i+2],'funnum'=>'1'];
                $replyarray=array_add($replyarray, $Message, $attributes);
                $array= array_dot([$project =>'']);
            }

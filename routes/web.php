@@ -58,7 +58,9 @@ Route::get('/hackHome', 'PagesController@hackHome');
 Route::get('/test', 'PagesController@indexx');
 
 Route::get('/dashboard', 'DashboardController@index');
-Route::post('/dashboard', 'DashboardController@test');
+//Route::post('/dashboard', 'DashboardController@test');
+Route::get('/createPresentation', 'SlidesController@index');
+Route::get('/createSlide', 'SlidesController@createSlide');
 Route::resource('post','PostController');
 
 
@@ -88,4 +90,9 @@ Auth::routes(['login' => 'auth.login']);
 $s = 'social.';
 Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
 Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
+
+//Api client Oauth
+Route::get('oauth', ['as' => 'oauthCallback', 'uses' => 'SlidesController@oauth']);
+Route::get('oauth2', ['as' => 'oauthCallback2','uses'=> 'SlidesController@index']);
+
 
