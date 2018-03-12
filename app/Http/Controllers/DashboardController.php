@@ -38,9 +38,9 @@ class DashboardController extends Controller
     }
 
 
-    public function test(Request $request)
+    public function generate(Request $request)
     {   
-       $Speak=$request->input('InputTextArea');                      
+       $Speak=$request->input('speakArea');                      
        $reply = explode(" ", $Speak);
        $Message='try again';
        $keys=[];
@@ -51,18 +51,15 @@ class DashboardController extends Controller
      // $list =  new \SplDoublyLinkedList;
 
         for( $i=0 ; $i<count($reply) ; $i++){
-            if($reply[$i]=="مشروع"){
-                $Message="ok";
-                $project=$reply[$i+1];
-                //$Message=$project;
-            }
+        
             //cmd1 : Create Presentation presentation-Name 
            if($reply[$i]=="create" && !empty ($reply[$i+1]) && $reply[$i+1]=="presentation"){
                $project=$reply[$i+2];
                $Message='presentation '.$project.' created';
-               $attributes=['name'=>$reply[$i+2],'funnum'=>'1'];
+               /*$attributes=['name'=>$reply[$i+2],'funnum'=>'1'];
                $replyarray=array_add($replyarray, $Message, $attributes);
-               $array= array_dot([$project =>'']);
+               $array= array_dot([$project =>'']);*/
+               return \App::call('App\Http\Controllers\SlidesController@index()');
            }
 
            //cmd2: create slide slide-num 
@@ -94,12 +91,9 @@ class DashboardController extends Controller
                
 
         }
-    if($replyarray != [])
-    { list($keys, $values) = array_divide($replyarray);}
-      $encode=json_encode($replyarray);
-       //$Message=$encode;
+    
       
-        return view('/dashboard',compact('Message','project','slidenum','encode','keys'));
+        return view('/dashboard',compact('Message'));
     }
 
 }

@@ -20,9 +20,11 @@ class SlidesController extends Controller
 {
     protected $client;
     public $presentationId;
-
+    public $Message="no command";
+    public $title="f";
     public function __construct()
     {
+        $this->title;
         $client = new Google_Client();
         $client->setAuthConfig('client_secret.json');
         $client->addScope(SCOPES);
@@ -40,15 +42,15 @@ class SlidesController extends Controller
         session_start();
         if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $this->client->setAccessToken($_SESSION['access_token']);
-            $title='mabeel';
             $slidesService = new Google_Service_Slides($this->client);
+             $title =$_SESSION['project'];
             $presentation = new Google_Service_Slides_Presentation(array(
              'title' => $title
             ));
-            $this->presentationId= $presentation->presentationId;
             $presentation = $slidesService->presentations->create($presentation);
-           
-            return view('/dashboard');
+            $_SESSION['presentationId']= $presentation->presentationId;
+            $Message='presentation '.$title.' created';
+            return view('/dashboard',compact('Message'));
         } else {
             return redirect()->route('oauthCallback');
         }
@@ -81,8 +83,7 @@ class SlidesController extends Controller
         $requests[] = new Google_Service_Slides_Request(array(
         'createSlide' => array (
                                 'insertionIndex' => 1,
-                                'slideLayoutReference' => array ( 'predefinedLayout' => 'TITLE_AND_TWO_COLUMNS')
-                                )
+                                'slideLayoutReference' => array ( 'predefinedLayout' => 'BIG_NUMBER'))
         ));
 
         // If you wish to populate the slide with elements, add element create requests here,
@@ -93,8 +94,10 @@ class SlidesController extends Controller
          'requests' => $requests
          ));
         $slidesService = new Google_Service_Slides($this->client);
-        $presentationId = '1J7U4BTskSANnqAgBGvUmQDMZZ-QL4-N-julLt7h6_D0';
+        $presentationId = $_SESSION['presentationId'];
         $response = $slidesService->presentations->batchUpdate($presentationId, $batchUpdateRequest);
+        $Message='Number Slide Created';
+        return view('/dashboard',compact('Message'));
     }
 }
     /**
@@ -185,4 +188,61 @@ class SlidesController extends Controller
     {
         //
     }
+    public function generate(Request $request)
+    {  session_start();
+       $Speak=$request->input('speakArea');                      
+       $reply = explode(" ", $Speak);
+       $Message='try again';
+       $keys=[];
+       $project=$request->input('project');
+       $slidenum=$request->input('slidenum');
+       $encode=$request->input('encode');
+      $replyarray=json_decode($encode,true);
+     // $list =  new \SplDoublyLinkedList;
+
+        for( $i=0 ; $i<count($reply) ; $i++){
+        
+            //cmd1 : Create Presentation presentation-Name 
+           if($reply[$i]=="create" && !empty ($reply[$i+1]) && $reply[$i+1]=="presentation"){
+               $project=$reply[$i+2];
+               $Message='presentation '.$project.' created';
+               $_SESSION['project']= $project;
+               /*$attributes=['name'=>$reply[$i+2],'funnum'=>'1'];
+               $replyarray=array_add($replyarray, $Message, $attributes);
+               $array= array_dot([$project =>'']);*/
+              return redirect()->route('oauthCallback');
+           }
+
+           //cmd2: create title slide  
+           if($reply[$i]=="create" && !empty ($reply[$i+1]) && $reply[$i+1]=="number"&&  $reply[$i+2]=="slide"){
+                 //$_SESSION['title']=$reply[$i+3];
+              // $array= array_dot([$project => [$slidenum =>'']]);
+               return redirect()->route('createSlide');
+               }
+
+          // cmd: color  
+             if($reply[$i]=="color" || $reply[$i]=="text"){
+                //$array= array_dot([$project => [$slidenum =>[$reply[$i]=> $reply[$i+1]]]]);
+               //$arra=array_add($arra,$project.$slidenum.$reply[$i],$reply[$i+1]);
+                $Message=$reply[$i].' changed to '.$reply[$i+1].' in '.$slidenum;
+                 $attributes=['projectname'=>$project ,'slidenum'=>$slidenum,'change'=>$reply[$i],'to'=>$reply[$i+1],'funnum'=>'3'];
+                 $replyarray=array_add($replyarray, $Message, $attributes);
+                }
+                if($reply[$i]=="undo" ){
+                    array_pop ( $replyarray );
+                    $Message="done";
+                    }
+                    if($reply[$i]=="generate" ){
+                        
+                        $replyarray=[];
+                        $Message="done";
+                        }
+               
+
+        }
+    
+      
+        return view('/dashboard',compact('Message'));
+    }
+
 }

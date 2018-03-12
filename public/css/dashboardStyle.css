@@ -1,23 +1,26 @@
 body {
-    background-image: url('/Images/2222.jpg');
+    background-image: url('/Images/dash.png');
     background-repeat: no-repeat;
     background-size:cover;
     margin: 0;
     padding: 0;
 }
 textarea {
-  width: 250px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
   background-color: transparent;
 }
+.overlay{
+  height:61vh;
+  width:29vw;
+  z-index:1;
+  background:grey;
+  opacity:0.9;
+}
 .form-style-5{
-    max-width: 500px;
-    padding: 10px 20px;
-    background:grey;
-    margin: 10px auto;
-    padding: 20px;
-    background:grey;
-    border-radius: 8px;
+   
+    background:gray;
+    opacity:0.5;
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 

@@ -22,43 +22,44 @@
 <div class="container">
         <div class="row">
           <div class="col-md-4">
-              <br><br>  
-                <div class="container" >
-                        <div class="speech" align="center">
-                            <br><br>
-                            {!! csrf_field() !!}
-                        <div class="form-style-5">
-                            
-                        </div>
-                        <input onclick='responsiveVoice.speak(speak.value);' Value ="play" type='button' class="btn btn-warning" id="value" />
-                       </div>
-                </div>
+                
           </div>
           <div class="col-md-4">
                 <div class="container">
-                   <br><br><br><br><br><br>
-                   <img onclick="startDictation()" width="90%" hight="90%" src="Images/RedMic.png" />
-                   <button onclick="startDictation()" type="button" class="btn btn-default" id="getRequest">Get Started</button>     
-                   <button onclick="document.speakForm.submit();" type="button" class="btn btn-default  " id="submit">send</button>
-                    <form  action="{{action('SlidesController@index')}}" method="post" name="speakForm"  id="VoiceForm" >
-                     <input type="submit" value="Submit">
-                    </form>
-                </div>
+                    <div class="container" >
+                        <div class="speech" align="center">
+                            <br><br>
+                            <img onclick="startDictation()" width="20%" hight="20%" src="Images/RedMic.png" />
+                   
+                            <br><br>
+                            {!! csrf_field() !!}
+                          <div class="overlay" >
+                           
+                           <textarea align="center" rows="10" cols="20" form="speakForm" onkeyup='responsiveVoice.speak(speakArea.value);'  id="speakArea" name="speakArea"  placeholder="speak">
+                           </textarea>
+                          </div>
+                           <br>
+                           <button onclick="document.speakForm.submit();" type="button" class="btn btn-default" id="submit">Generate</button>
+                        <form action="{{action('SlidesController@generate')}}" method="post" name="speakForm" id="speakForm">{{ csrf_field() }}</form>
+                       </div>
+                   </div>
+                 </div>
+                   <br><br>
+                  <div class="speech" align="center">
+                      
+                    <div class="form-style-5">
+                       <textarea rows="13" cols="40" name="r" id="replyForm" placeholder="replyForm"> 
+                     </textarea>
+                    </div>  
+                    <input onclick='responsiveVoice.speak("{{$Message}}");' Value ="play" type='button' class="btn btn-warning" id="say" />
+                 <div>
+                     
           </div>
 
           <div class="col-md-4" id="p">
                <br><br><br><br>
                <div class="container">
-                  <div class="speech" align="center">
-                    <div class="form-style-5">
-                       <textarea rows="13" cols="40" name="r" id="replyForm" placeholder="replyForm"> 
-                          @foreach($keys as $key)
-                          {{$key}}
-                          @endforeach 
-                     </textarea>
-                    </div>  
-                    <input onclick='responsiveVoice.speak("{{$Message}}");' Value ="play" type='button' class="btn btn-warning" id="say" />
-                 <div>
+                
               </div>
           </div>   
 
@@ -83,7 +84,7 @@
             recognition.start();
       
             recognition.onresult = function(e) {
-              document.getElementById('speak').value
+              document.getElementById('speak0').value
                                        = e.results[0][0].transcript;
               recognition.stop();
 
